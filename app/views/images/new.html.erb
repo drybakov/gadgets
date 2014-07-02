@@ -1,0 +1,10 @@
+<%= form_for [@gadget, @image] do |f| %>
+    <p>
+      <%= f.label :image %>
+      <%= f.file_field :source %>
+    </p>
+    <p>
+      <%= f.submit 'Create', class: 'btn btn-primary' %>
+    </p>
+
+<% end %>

@@ -1,0 +1,23 @@
+<%= form_for @gadget, html: {multipart: true} do |f| %>
+    <% if @gadget.errors.any? %>
+        <div id="error_explanation" class="alert">
+          <h2>Gadget cannot be stored</h2>
+          <ul>
+            <% @gadget.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
+    </p>
+    <p>
+      <%= f.submit 'Create', class: 'btn btn-primary' %>
+    </p>
+<% end %>

@@ -1,0 +1,19 @@
+<h1 class="text-center">My c00l gadgets list</h1>
+<br/><br/>
+<ul class="thumbnails">
+  <% @gadgets.each_slice(3) do |slice| %>
+      <% slice.each do |gadget| %>
+          <li class="row3">
+            <div class="thumbnail">
+                <img src="<%= gadget.cover_url || image_path('no-image.jpg') %>" />
+                <br/>
+                <h3><%= gadget.name %></h3>
+            </div>
+          </li>
+      <% end %>
+  <% end %>
+</ul>
+
+<%= link_to 'Create new gadget', new_gadget_path, class: 'btn btn-primary' %>
+<br/><br/>
+<p><%= link_to 'Switch to list view', gadgets_path(style: 'list') %></p>

@@ -1,0 +1,30 @@
+<h1 class="text-center">My c00l gadgets list</h1>
+
+<table class="table">
+  <thead>
+  <th>Name</th>
+  <th>Description</th>
+  <th>Images</th>
+  <th></th>
+  </thead>
+  <tbody>
+  <% @gadgets.each do |gadget| %>
+    <tr>
+      <td><%= gadget.name %></td>
+      <td><%= gadget.description %></td>
+      <td>
+        <% gadget.images.each do |image| %>
+            <img src="<%= image.source.thumb.url %>" />
+         <% end %>
+      </td>
+      <td>
+        <%= link_to 'Add image...', new_gadget_image_path(gadget) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Create new gadget', new_gadget_path, class: 'btn btn-primary' %>
+<br/><br/>
+<p><%= link_to 'Switch to cover view', gadgets_path(style: 'cover') %></p>
